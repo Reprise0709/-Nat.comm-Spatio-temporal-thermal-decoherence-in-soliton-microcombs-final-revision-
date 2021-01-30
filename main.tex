@@ -1,0 +1,790 @@
+\documentclass[noshowpacs,amsmath,
+%preprintnumbers,
+twocolumn,
+superscriptaddress,
+%preprint,
+%endfloats*,
+%10pt,
+8pt,
+aps,prb]{revtex4-2}
+\bibliographystyle{naturemag}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\newcommand{\vect}[1]{\vec{#1}}
+\renewcommand{\figurename}{\textbf{Fig.}}
+\usepackage{verbatim}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{dcolumn}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\setcitestyle{super}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps} 
+\begin{document}
+\title{Dispersive-wave induced noise limits in miniature soliton microwave sources}
+
+\author{Qi-Fan Yang$^{1,\ast}$, Qing-Xin Ji$^{1,\ast}$, Lue Wu$^{1,\ast}$, Boqiang Shen$^{1}$, Heming Wang$^{1}$, Chengying Bao$^{1}$, Zhiquan Yuan$^{1}$, and Kerry Vahala$^{1,\dagger}$\\
+$^1$T. J. Watson Laboratory of Applied Physics, California Institute of Technology, Pasadena, California 91125, USA\\
+$^{\ast}$These authors contributed equally to this work.\\
+$^{\dagger}$Corresponding author: vahala@caltech.edu}
+
+%\date{\today}
+
+\maketitle
+
+\noindent\textbf{Abstract}
+
+\noindent Compact, low-noise microwave sources are required throughout a wide range of application areas including frequency metrology, wireless-communications and airborne radar systems. And the photonic generation of microwaves using soliton microcombs offers a path towards integrated, low noise microwave signal sources.  In these devices, a so called quiet-point of operation has been shown to reduce microwave frequency noise.  Such operation decouples pump frequency noise from the soliton's motion by balancing the Raman self-frequency shift with dispersive-wave recoil. Here, by exploring the limit of this noise suppression approach, a fundamental noise mechanism associated with fluctuations of the dispersive wave frequency is revealed. At the same time, pump noise reduction by as much as 36 dB is demonstrated. This fundamental noise mechanism is expected to impact microwave noise (and pulse timing jitter) whenever solitons radiate into dispersive waves belonging to different spatial mode families.
+
+\noindent\textbf{Introduction}
+
+\noindent Soliton mode locking in optical microresonators is receiving intense interest for chip-scale integration of frequency comb systems \cite{Kippenberg2018}. Apart from frequency comb applications, the microwave signal produced by detection of the microcomb output is, itself, potentially important as a microwave signal source (see Fig. \ref{figure1}). 
+However, mode locking of microcombs at microwave rates is challenging on account of their unfavorable pump power scaling with repetition rate \cite{yi2015soliton}. Indeed, only ultra-high-Q discrete silica and crystalline devices were initially able to operate efficiently at microwave rates \cite{herr2014mode,yi2015soliton,liang2015high,suh2018gigahertz}. 
+Nonetheless, \textcolor{red}{The next} generations of integrated ultra-high-Q resonators are emerging that both access the microwave-rate realm \cite{yang2018bridging,liu2020photonic,jin2020hertz} and offer more complete integrated functionality \cite{shen2020integrated,jin2020hertz}. Because of their superior phase noise performance compared to other miniature photonic microwave approaches \cite{li2013microwave,tang2018integrated,do2020wideband,gundavarapu2019sub}, these devices are stimulating interest in miniature stand-alone soliton microwave sources.
+
+While the fundamental limit of phase noise (and equivalently timing jitter) in the detected soliton pulse stream is induced by quantum fluctuations \cite{matsko2013timing,bao2020quantum}, in practice, phase noise is dominated by sources of a more technical origin that couple to the soliton motion in various ways. For example, the Raman self frequency shift in microcombs \cite{yi2016theory,karpov2016raman} provides a mechanism for transduction of changes in the detuning frequency (difference in the frequencies of the resonator mode being pumped and the pumping laser field) into the soliton repetition rate \cite{yang2016spatial}. It does this by causing a frequency shift in the center frequency of the soliton spectrum (which has an overall $\rm sech^2$ envelope) as the pump detuning frequency is varied. Group velocity dispersion then converts these spectral shifts into changes in the soliton round-trip propagation time and hence the repetition rate. The Raman process thereby couples any fluctuation of the resonator frequency (e.g., thermorefractive noise \cite{gorodetsky2004fundamental,matsko2007whispering,kondratiev2018thermorefractive,huang2019thermorefractive}) or the pump frequency into microwave phase noise. Dispersive waves can also induce a spectral center shift in the Kerr soliton \cite{brasch2016photonic,yang2016spatial}. Dispersive waves can emerge as a result of higher-order dispersion \cite{Jang2014observation, brasch2016photonic}, supermodes \cite{nielsen2018invited}, or when solitons radiate into resonator modes that do not belong to the soliton-forming mode family. And the spectral shift they induce can offset the Raman self shift. Indeed, when dispersive wave and Raman shifts are in balance, a $quiet$ operating point is attained whereby coupling of detuning frequency fluctuations into the soliton repetition rate are greatly reduced \cite{yi2017single}. 
+
+Here, by investigating possible limits in application of the quiet operating point, we report the observation of a fundamental noise source in the soliton repetition rate. Referred to as spatio-temporal thermal noise, it originates from uncorrelated thermal fluctuations between distinct transverse modes of the microresonator, and can couple into the soliton repetition rate through the formation of a dispersive wave. Theory and experiment show that the spatio-temporal thermal noise imposes a considerable limitation on the repetition rate stability of soliton microcombs emitting dispersive waves into spatial mode families that are distinct from the soliton-forming mode family. Beyond the study of the dispersive-wave noise, a convenient way to operate the soliton microwave source at the quiet point while also disciplining it to an external reference, such as a clock, is demonstrated.
+
+\medskip
+
+\noindent{\bf Results}
+
+\noindent{\bf Soliton generation in silica microresonators}
+
+\noindent A silica disk microresonator with intrinsic $Q$ factor exceeding $300$ million and free-spectral-range ($FSR$) around 15 GHz is used in the study \cite{lee2012chemically,wu2020greater}. The microresonator is packaged with active temperature stabilization \cite{suh2019directly} and operated under an acoustic shield to block environmental perturbations (Fig. \ref{figure2}a,b). By continuously pumping the resonator with an amplified fiber laser, bright soliton pulses are generated, which are further stabilized by servo control of the pump laser frequency with respect to the average soliton power \cite{yi2016active}. The residual error in the feedback loop is monitored by an electrical spectral analyzer. The soliton beatnote is photodetected and characterized using a phase noise analyzer and a frequency counter. The beatnote of the soliton microcomb shows a 15.2 GHz repetition rate (see Fig. \ref{figure1}). Its phase noise exhibits a smooth spectral shape across a wide frequency range as a result of isolation provided by the package and acoustical shield (Fig. \ref{figure2}b). As a benchmark of the stability, the fractional Allan deviation of the beatnote is plotted in Fig. \ref{figure2}c and reaches $5.7\times 10^{-11}$ at $50$ ms averaging time.
+
+
+
+
+
+\medskip
+\noindent{\bf Quiet point operation} 
+
+\noindent Plotted in Fig. \ref{figure3}a is a representative optical spectrum of the soliton microcomb, showing its characteristic $\mathrm{sech}^2$ spectral envelope. Dispersive waves (the spectral spurs on the envelope) also appear in the spectrum and result from frequency degeneracy between comb lines and other transverse modes that do not belong to the soliton forming mode family \cite{herr2014mode,yang2016spatial,yi2017single,guo2017intermode}. It is noted that the spectral envelope center of the soliton is offset from the pump frequency. This is caused by the cumulative effect of the Raman-induced soliton-self-frequency-shift (SSFS) $\Omega_{\rm Raman}$ \cite{karpov2016raman,yi2016theory,yang2016spatial} and dispersive-wave induced spectral recoil $\Omega_{\rm recoil}$ \cite{lucas2017detuning,yi2017single,guo2017intermode}. The soliton repetition rate, $\omega_{\rm rep}$, is related to these frequency shifts by \cite{yang2016spatial,yi2017single}
+\begin{equation} 
+    \omega_{\rm rep}
+    =D_{1}+\frac{D_{2}}{D_{1}}(\Omega_{\rm Raman}+\Omega_{\rm recoil}),
+    \label{Eq:reprate}
+\end{equation}
+where $D_1/2\pi$ is the $FSR$ and $D_{2}$ is proportional to the group velocity dispersion (GVD) of the soliton-forming mode family \cite{herr2014temporal,yi2015soliton}. Therefore, through the respective dependence of $\Omega_{\rm Raman}$ and $\Omega_{\rm recoil}$ on detuning frequency $\mathrm{\delta\omega} = \omega_{\rm o} - \omega_{\rm P}$ ($\omega_{\rm o}$ is frequency of the cold cavity mode being pumped by optical field at frequency $\omega_{\rm P}$), the soliton repetition rate becomes a function of the detuning frequency. As reported in previous literature, noise in $\omega_{\rm P}$ often plays a dominant role in causing fluctuations in $\mathrm{\delta\omega}$, and subsequently, by way of Eq. (\ref{Eq:reprate}), also in $\omega_{\rm rep}$   \cite{yi2017single,stone2018thermal,lucas2020ultralow}. However, it has also been shown that interplay between Raman SSFS and dispersive-wave induced spectral recoil can be used to suppress this noise transfer \cite{yi2017single,lucas2020ultralow}. Along these lines, Fig. \ref{figure3}b is the measured dependence of soliton repetition rate on detuning $\mathrm{\delta \omega} / 2 \pi$, and shows a parabolic-like trend instead of a monotonic trend. The slope, $\beta=\partial\omega_{\rm rep}/\partial\mathrm{\delta\omega}$, vanishes at around 11.5 MHz detuning, corresponding to the quiet point of operation where dispersive wave and Raman induced shifts are in balance. Here, the detuning $\mathrm{\delta \omega}$ is calculated based on equation (\ref{Detuning}) in Methods. By operating the soliton microcomb near this quiet point, the contribution of detuning noise to the soliton repetition rate noise can be reduced \cite{yi2017single,lucas2020ultralow}.
+
+To actively monitor the degree to which the detuning noise contribution is suppressed through quiet point operation, we modulate the phase of the pump laser at 10 kHz to create a large spike in the detuning noise spectrum. This induces calibration tones in the vicinity of the soliton beatnote \cite{lucas2020ultralow}, as shown in Fig. \ref{figure3}c. Measured phase noise spectra of the detected soliton microwave signal along with the power of calibration tone (see colored triangle points) are plotted in Fig. \ref{figure3}d for different detuning frequencies. As an aside, the pronounced bump around 20 kHz in the phase noise spectrum is caused by the piezoelectric tuning bandwidth of the pump laser. Away from the quiet point, the phase noise is largest and is found to follow the spectral profile of the detuning noise, which is extracted from the residual error signal in the locking loop. The contribution of the detuning noise can be scaled based on the power of calibration tone to determine its contribution in each measurement. At the quiet point, 36 dB of noise suppression is measured using the calibration tone. And the corresponding inferred detuning noise contribution (dashed orange spectrum in Fig. \ref{figure3}d) is below the actual measured noise spectrum at the quiet point (purple spectrum in Fig. \ref{figure3}d). This indicates that another noise source is limiting the phase noise at the quiet point. As one possible source of this limit, pump intensity noise could also couple into the soliton repetition rate through the combined effect of Kerr and Raman nonlinearity \cite{stone2018thermal,lucas2020ultralow}. However, its contribution (see dashed gray curve in figure) is evaluated in the Methods and appears to be negligible in this measurement. Fig. \ref{figure3}e gives a comparison of the measured phase noise reduction (referenced to the highest phase noise trace) versus the reduction inferred by the calibration tone. A clear saturation in the measured noise reduction near the quiet point is shown at several different offset frequencies, suggesting again that a source of noise is present. The saturation is stronger at lower offset frequencies indicating that the noise mechanism is larger at lower frequencies (see Fig. \ref{figure3}d). As an aside, the quiet-point-induced phase noise reduction is also slightly higher than indicated by the calibration tone for lower noise suppression levels (when measured at 500 Hz and 1 kHz offsets). This could result from possible instrument calibration error associated with calibration using a 10 kHz tone. 
+
+\medskip
+
+\noindent{\bf Dispersive-wave induced noise}
+
+\noindent Prior analysis of fundamental sources of repetition rate noise assume that the soliton is formed and couples solely within a single transverse mode family. However, the practical need for higher $Q$ resonators favors larger resonator cross section so as minimize the impact of interface and sidewall roughness \cite{ji2017ultra}. Typically, several transverse modes besides the soliton forming mode exist in the microresonator.  And when longitudinal modes in these other families experience near degeneracy with a mode in the soliton, the soliton radiates power creating a dispersive wave (Fig. \ref{figure4}a) \cite{herr2014mode,yang2016spatial,yi2017single,guo2017intermode}. The radiative power depends strongly upon the degree of resonance as determined by  $\mathrm{\Delta\omega}$ (the frequency difference between the two modes),  $\mathrm{\Delta\omega}_r$ (the frequency difference between the soliton comb line and the soliton-forming mode with index $r$), and $\kappa_{\rm B}$ (the optical loss rate of the dispersive wave mode). The relationship between these difference frequencies is illustrated in Fig. \ref{figure4}a. The radiated power causes a frequency recoil, $\Omega_{\rm recoil}$, in the soliton spectral center relative to the pump frequency which takes the form \cite{yi2017single}
+\begin{equation}
+    \Omega_{\rm recoil}\propto
+    \frac{1}{(\mathrm{\Delta\omega'})^{2}[(\mathrm{\Delta\omega}_r- \mathrm{\Delta\omega'})^{2}+\frac{\kappa_{\rm B}^{2}}{4}]},
+    \label{ME}
+\end{equation}
+where $\mathrm{\Delta\omega'}$ is the frequency difference between the partially hybridized crossing mode and the soliton mode, denoted by $\mathrm{\Delta\omega'}=\mathrm{\Delta\omega}/2+\sqrt{\mathrm{\Delta\omega}^2/4+G^2}$ (where $G$ is the coupling strength between the soliton and crossing mode). $\mathrm{\Delta\omega}_r$ is determined by both detuning $\mathrm{\delta\omega}$ and recoil (and thereby $\mathrm{\Delta\omega}$). And this equation provides a way for fluctuations in $\mathrm{\delta\omega}$ and $\mathrm{\Delta\omega}$ to impact the soliton repetition rate. Specifically, the resulting fluctuations in $ \Omega_{\rm recoil}$ cause spectral center fluctuations of the soliton that randomly vary its round trip time as a result of second order dispersion. 
+The physical process steps involved in this noise transduction mechanism are depicted in Fig. \ref{figure4}b.  A transduction factor $\alpha \equiv \partial\omega_{\rm rep}/\partial\mathrm{\Delta\omega}$ relating the repetition rate to changes in $\mathrm{\Delta\omega}$ is defined and noted in the figure. For comparison, the process steps involved in the transduction of detuning noise into repetition rate changes ($\beta$ factor defined earlier) are also provided. As noted earlier, detuning noise can be quieted through interference between the pathways indicated in Fig. \ref{figure4}b, one of which uses portions of the dispersive wave recoil process. 
+
+To identify the mode families that constitute the soliton microcomb and the dispersive wave in the experiment, we perform mode family dispersion spectroscopy using a scanning external-cavity-diode-laser (calibrated by a separate Mach-Zehnder interferometer), as shown in Fig. \ref{figure4}c. Comparing the measurement with numerical modeling of the modal dispersion, the mode family that gives rise to the strong dispersive wave in Fig. \ref{figure3}a is determined to belong to the TM$_{4}$ mode family, while the soliton is formed on the TM$_{0}$ mode family. Their $Q$ factors are also measured, as shown in Fig. \ref{figure4}d.
+
+\medskip
+\noindent{\bf Thermal noise in the dispersive wave}
+
+\noindent Fluctuations associated with thermal equilibrium result in spatial and temporal variations of temperature in the microresonator \cite{gorodetsky2004fundamental,matsko2007whispering,levin2008fluctuation,kondratiev2018thermorefractive,huang2019thermorefractive}. Such temperature fluctuations, characterized by a spectral density $S_{\mathrm{\delta T}}$ of the modal temperature fluctuations, induce  a frequency fluctuation $\mathrm{\delta D_1}$ in the resonator FSR (and in turn the soliton repetition rate) through the thermo-optic effect that is characterized by the spectral density $S_{\mathrm{\delta D_1}}$,
+\begin{equation}
+    S_{\mathrm{\delta D_1}}=\frac{n_{\rm T}^2}{n_{\rm o}^2}D_1^2 S_{\overline{\mathrm{\delta T}}},
+\end{equation}
+with $n_{\rm T}$ the thermo-optic coefficient and $n_{\rm o}$ the refractive index of the mode. This noise contribution to the soliton repetition rate, and that induced by quantum vacuum fluctuations \cite{matsko2013timing,bao2020quantum}, are found to be much smaller than the measured noise in Fig. \ref{figure3}d. However, as now shown, thermorefractive noise (TRN) induced in the modes participating in dispersive-wave emission can be a major source of repetition rate noise. 
+
+From the analysis in the previous section, noise in relative frequency, $\mathrm{\Delta\omega}$, will couple to the repetition rate through the parameter $\alpha$. The TRN induced noise in $\Delta\omega$ is given by the following spectral density (see Methods),
+\begin{equation}
+    S_{\Delta\omega}=\frac{n_{\rm T}^2}{n_{\rm o}^2}\omega_{\rm o}^2 (S_{{\mathrm{\delta T_S}}}+S_{{\mathrm{\delta T_D}}}-2 R \sqrt{S_{{\mathrm{\delta T_S}}} S_{{\mathrm{\delta T_D}}}}),
+    \label{Eq:dtvscorr}
+\end{equation}
+where $\mathrm{\delta T}_{\rm S}$ and $\mathrm{\delta T}_{\rm D}$ give temperature fluctuations of mode volumes associated with the soliton and dispersive-wave modes involved in the definition of $\mathrm{\Delta\omega}$. $R$ is a frequency dependent function discussed in the Methods section that accounts for correlation between the fluctuations $\mathrm{\delta T_S}$ and $\mathrm{\delta T_D}$. This correlation can be modeled using the finite-element-method (FEM) and the fluctuation-dissipation theorem (FDT) \cite{levin2008fluctuation,kondratiev2018thermorefractive,huang2019thermorefractive}. Simulation results for different pairs of transverse modes are plotted in Fig. \ref{figure5}a. On account of thermal diffusivity, the function $R$ decreases rapidly with increasing frequency, so that beyond a thermal-limited rate the temperature fluctuations of the two modes become uncorrelated. When this happens, the value of $S_{\mathrm{\Delta\omega}}$ exceeds $S_{\mathrm{\delta D_1}}$ by several orders since it reflects temperature fluctuations in absolute (as opposed to relative) optical frequencies. 
+
+
+In order to test the numerical results and parameters used to simulate these thermally-related quantities \cite{kondratiev2018thermorefractive,huang2019thermorefractive}, we measured the TRN of the soliton mode. The frequency fluctuations of the mode were tracked by Pound-Drever-Hall (PDH) locking a fiber laser to a cavity resonance.  The locked laser frequency is then measured using an optical frequency discriminator as described in the Methods. The measured single-sideband TRN is plotted in Fig. \ref{figure5}b, and is in good agreement with the simulation. The calculated phase noise of the intermode TRN using the soliton mode and dispersive wave mode is also plotted for comparison.  Suppression of intermode TRN is apparent at low-offset frequencies relative to the single mode TRN. However, at higher offset frequencies (above $\sim$ 1 kHz), the intermode TRN becomes the summation of TRN contributions belonging to each mode. The TRN of the $FSR$ is also shown for comparison. Notice that despite the improved correlation of the intermode TRN at lower offset frequencies, it still dominates the microwave phase noise measured in Fig. \ref{figure3}d and Fig. \ref{figure3}e. This happens because the TRN noise rises very rapidly as offset frequency decreases, even overcoming the improving correlation of TRN between the dispersive wave mode and soliton forming mode. 
+
+An additional measurement of soliton microwave phase noise was performed except using PDH locking of the pump laser to the resonator as opposed to servo control using soliton power. Under these conditions, the pump frequency tracks the cavity resonance thereby suppressing its technical noise contribution to the soliton phase noise. As expected the measured noise spectrum showed a limitation consistent with the dispersive wave noise \textcolor{red}{(see Methods)}. 
+
+A summary of noise contributions to the soliton repetition rate yields
+\begin{equation}
+    S_{\omega_{\rm rep}}(f) = \alpha^2 S_{\mathrm{\Delta\omega}}+S_{\mathrm{\delta D_1}}+S_{\rm Q}+\beta^{2}S_{\rm \delta\omega}+S_{\rm P},
+    \label{noise_contribution}
+\end{equation}
+\textcolor{red}{where $S_{\rm Q}$ is the quantum noise limit \cite{matsko2013timing}, and $S_{\rm P}$ is noise transferred from intensity noise of the pump laser. } To evaluate the noise transduction factors, experimental results are fitted with theory based on the Lugiato-Lefever equation (see Methods). The Raman frequency shift and dispersive-wave recoil are plotted in Fig. \ref{figure5}c, where the error bar is the standard deviation contributed from fitting of the soliton spectral envelope. The frequency recoil in eqn. \ref{ME} is fitted in the same graph to evaluate mode coupling coefficients. Noise transduction factors $\alpha$ and $\beta$ are then calculated and plotted in Fig. \ref{figure5}d together with the measured results. 
+Figure \ref{figure5}e shows both measured and calculated phase noise of the soliton repetition rate while operating at the quiet point. Excellent agreement with the predicted intermode TRN induced noise is obtained by setting $\alpha=-24.5$ dB (measurement value), which is close to the theoretical value $\alpha=-23.6$ dB. Other fundamental noise contributions are also plotted, but are not limiting factors in the current measurement \cite{gorodetsky2004fundamental,matsko2007whispering,matsko2013timing,kondratiev2018thermorefractive,huang2019thermorefractive}.
+
+\medskip
+
+\noindent{\bf External reference locking at the quiet point}
+
+\noindent Most signal sources provide a feature that allows the oscillator frequency to be conveniently locked to an external reference such as a clock so as to provide long term frequency stability \cite{newman2019architecture}.  In the present device, there is a straightforward way to achieve this locking that also provides fine tuning control of the microwave frequency near the quiet point.  As a proof of concept, instead of servo controlling the soliton system by controlling the soliton power \cite{yi2016active}, we lock the soliton repetition rate to a high-performance electrical signal generator by servo controlling the optical pump frequency. The resulting soliton beatnote is shown in Fig. \ref{figure6}a, and can track the frequency of the microwave source over a 30 kHz range to achieve fine tuning control. This range is likely determined by the soliton existence range, which is, in turn, determined by the pump laser power \cite{herr2014temporal}. At the same time, the soliton microwave phase noise, shown in Fig. \ref{figure6}b, is disciplined to the reference oscillator within the servo locking bandwidth. The peak around 10 kHz is induced by the servo locking bandwidth. At high-offset frequencies, the soliton phase noise outperforms the electrical oscillator (a Keysight PSG) by up to 20 dB. A variation in noise performance with fine tuning is apparent with the best performance corresponding to operation near the quiet point. 
+
+\medskip
+
+\noindent{\bf Discussion}
+
+\noindent In conclusion, we demonstrated a low-noise 15 GHz oscillator based on soliton microcombs. The measured phase noise of -90 dBc Hz$^{-1}$ at 1 kHz and -140 dBc Hz$^{-1}$ at 100 kHz offset frequencies is a record low among existing photonic-chip-based microwave sources \cite{li2013microwave,tang2018integrated,do2020wideband,gundavarapu2019sub,liu2020photonic,jin2020hertz} (scaled to 15 GHz). A comparison of miniature photonic-based microwave oscillators is included in Table. \ref{Table1}. The low noise performance was obtained by operation near the soliton mode locking quiet point \cite{yi2017single}, where technical noise suppression as large as 36 dB was measured.  Discipline of the soliton microwave source to an external microwave reference was also demonstrated, which could be useful in combination with miniaturized optical clocks \cite{newman2019architecture}. 
+
+A fundamental noise mechanism associated with dispersive waves belonging to non soliton-forming mode families was also identified and theoretically modeled. Since dispersive waves induced by distinct transverse modes are ubiquitous across many soliton microcomb systems \cite{herr2014temporal,yi2015soliton,gong2018high,he2019self,liu2020photonic}, this noise mechanism is expected to appear in other soliton microwave systems. Nonetheless, several methods can be implemented to mitigate this noise. First, use of dispersive waves within the same longitudinal mode family (as formed by higher order dispersion \cite{brasch2016photonic,pfeiffer2017octave,li2017stably,Jang2014observation}) could be investigated. In this case, better overlap of the dispersive-wave modal profile with the soliton mode would be expected to reduce the dispersive wave noise. Also, increasing the modal volume, reducing the thermo-optic coefficient or moving to cryogenic temperatures \cite{moille2020dissipative} could also greatly enhance the thermal stability of the microresonator \cite{Lee2014spiral,liang2015high}.  Such techniques might ultimately endow these photonic microwave sources with quantum-limited performance \cite{matsko2013timing}.
+
+
+\bigskip
+
+\noindent\textbf{Methods}
+
+\begin{footnotesize}
+\medskip
+\noindent{\bf Experimental details}
+
+\noindent The resonant frequencies of the modes are measured by scanning an external cavity diode laser across a broad wavelength span (1520 nm - 1630 nm in this measurement). The laser scan is precisely measured by a radio-frequency calibrated Mach-Zehnder interferometer \cite{Li2012sideband,yi2015soliton}. The resonant frequency at mode index $\mu$ is expanded up to the second order with respect to the mode number $\mu$,
+\begin{equation}
+    \omega_{\mu}=\omega_{\rm o}+D_{1}\mu+\frac{1}{2}D_{2}\mu^{2}+\mathcal{O}(\mu^{3}).
+\end{equation}
+From the measurement, the parameters of the soliton mode family are: $D_{1S}/(2\pi)=15.21857$ GHz, $D_{2S}/(2\pi)=7.5$ kHz, and the parameters of the dispersive wave mode mode family are: $D_{1\rm D}/(2\pi)=15.17479$ GHz, $D_{2 \rm D}/(2\pi)=7.5$ kHz.
+
+The soliton microcomb is amplified to around 5 mW using an EDFA before coupling into the high-speed photodetector. The phase noise of soliton repetition rate is measured using a Rohde-Schwarz FSUP26 phase noise analyzer with cross-correlation function. The soliton beatnote is down-mixed with a high-performance electrical oscillator (Agilent E8257D PSG analog signal generator) before sending into a frequency counter for the measurement of Allan deviation.
+
+The detuning noise is obtained by monitoring the residual error signal of the locking loop. The transduction factor (slope) between error signal and pump-cavity detuning is calibrated by mapping the error signal with respect to different soliton operation points. No obvious dependence of detuning noise on specific soliton operation point is observed, indicating that the detuning noise is primarily determined by the pump laser and the servo.
+
+The TRN measurement setup is shown in Fig. \ref{figure7}a. A fiber laser is locked to a soliton forming mode using the Pound-Drever-Hall (PDH) locking technique. To mitigate the thermo-optic locking effect \cite{carmon2004dynamical,li2014pump,drake2020thermal}, the power launched into the microresonator is reduced. Also, the locking point is set to a sideband of the PDH error signal to reduce the power coupled into the microresonator. The TRN is then extracted by monitoring the laser frequency in real time using a Mach-Zehnder inteferometer as an optical frequency discriminator. 
+
+The error of the results are contributed from instrumental and fitting errors. In the phase noise measurement, the signal analyzer contributes an uncertainty of $<1$ dB for $100$ Hz to $10$ MHz offset and $<3$ dB for $1$ Hz to $100$ Hz and $10$ MHz to $30$ MHz offset. In the detuning noise measurement, the measurement uncertainty is $<3$ dB. Fitting uncertainty is evaluated using nonlinear regression. 
+
+\medskip
+
+\noindent{\bf Thermal noise theory}
+
+\noindent In this section, we derive the spectral density of modal temperature fluctuation based on the Fluctuation-dissipation theorem (FDT) \cite{callen1951irreversibility,landau1980statisticheskaia,levin2008fluctuation,kondratiev2018thermorefractive}. As shown in Fig. \ref{figure7}b, the microresonator exists in a heat reservoir with temperature $T_{\rm o}$. The temperature deviation from thermal equilibrium follows the heat equation
+\begin{equation}
+    \rho C \frac{\partial \mathrm{\delta T}}{\partial t}-k \nabla^2 \mathrm{\delta T}=\frac{\partial\mathrm{\delta Q}}{\partial t}=T_{\rm o} \frac{\partial \mathrm{\delta S}}{\partial t},
+    \label{Eq:heateq}
+\end{equation}
+where $\rho$, $C$ and $k$ are respectively the material mass density, heat capacity and thermal conductivity. $\mathrm{\delta Q}$ and $\mathrm{\delta S}$ are local fluctuation of heat and entropy. First we study the fluctuation of the optical-mode-weighted average temperature, which takes the form
+\begin{equation}
+    \overline{\mathrm{\delta T}}=\int \mathrm{\delta T} q({\bf r}) d^3{\bf r}.
+\end{equation}
+Here the density $q(\mathbf{r})$ represents the normalized distribution of the electrical field intensity (Fig. \ref{figure7}b), which can be written as
+\begin{equation}
+    q(\mathbf{r})=\frac{|E(\mathbf{r})|^{2}}{\int|E(\mathbf{r})|^{2}d^{3}\mathbf{r}}.
+\end{equation}
+As described in previous literature \cite{levin2008fluctuation,kondratiev2018thermorefractive}, to properly formulate the FDT a periodic entropy injection is applied onto the system such that
+\begin{equation}
+    \mathrm{\delta S}=F_{\rm o} \cos (2\pi ft) q({\bf r}).
+\end{equation}
+The resulting time-averaged dissipation power yields
+\begin{equation}
+    W_{\rm diss}
+    =\int \frac{k}{T_{\rm o}}<(\nabla \mathrm{\delta T})^2> d^3\mathbf{r},
+\end{equation}
+where $<>$ denotes time-averaging, which, according to the FDT, gives the single-sideband power spectral density (PSD) of $\overline{\mathrm{\delta T}}$,
+\begin{equation}
+    S_{\overline{\mathrm{\delta T}}}(f)
+    =\frac{\hbar W_{\rm diss}}{\pi f F_{\rm o}^2}\coth{(\frac{\pi\hbar f}{k_{\rm B}T_{\rm o}})},
+    \label{DFT}
+\end{equation}
+with $k_{\rm B}$ Boltzmann's constant.
+
+This approach can be extended to reveal the PSD of temperature difference between two optical modes, $S_{\Delta T}$, by introducing the difference in field intensity distributions as follows,
+\begin{equation}
+    q(\mathbf{r})=q_1(\mathbf{r})-q_2(\mathbf{r})=\frac{|E_{1}(\mathbf{r})|^{2}}{\int|E_{1}(\mathbf{r})|^{2}d^{3}\mathbf{r}}-\frac{|E_{2}(\mathbf{r})|^{2}}{\int|E_{2}(\mathbf{r})|^{2}d^{3}\mathbf{r}},
+\end{equation}
+where $E_1$ and $E_2$ represent the respective electrical fields of the two modes. From these results, the spectral density of the difference in modal-weighted temperatures is  given by,
+\begin{equation}
+\begin{split}
+    S_{\mathrm{\Delta T}}(\omega)&=\mathcal{F}\{<[\overline{\mathrm{\delta T_1}}(t)-\overline{\mathrm{\delta T_2}}(t)][\overline{\mathrm{\delta T_1}}(t+\tau)-\overline{\mathrm{\delta T_2}}(t+\tau)]>\}(\omega)\\
+    &=S_{\overline{\mathrm{\delta T_1}}}(\omega)+S_{\overline{\mathrm{\delta T_2}}}(\omega)-2Real\{ \:\mathcal{F}[<\overline{\mathrm{\delta T_1}}(t)\overline{\mathrm{\delta T_2}}(t+\tau)>](\omega)\}\\
+    \end{split}
+    \label{Eq:SdeltaT}
+\end{equation}
+where Fourier transformation is denoted by $\mathcal{F}$. With the definition,
+\begin{equation}
+    R (\omega) = \frac{Real\{ \:\mathcal{F}[<\overline{\mathrm{\delta T_1}}(t)\overline{\mathrm{\delta T_2}}(t+\tau)>](\omega)\}} {\sqrt{ S_{\overline{\mathrm{\delta T_1}}} S_{\overline{\mathrm{\delta T_2}}} }}, 
+    \label{Eq:normcorr}
+\end{equation}
+Eq. \ref{Eq:SdeltaT} gives Eq. \ref{Eq:dtvscorr} in the main text when the thermo-optic properties are taken into account.
+
+In practice, the energy dissipation $W_{\rm diss}$ can be acquired by Fourier transformation of Eq. \ref{Eq:heateq} with respect to $t$, yielding
+\begin{equation}
+    i \omega \rho C \mathcal{F}\{\mathrm{\delta T}\}-k \nabla ^2 \mathcal{F}\{\mathrm{\delta T}\}=i \omega T_{\rm o} F_{\rm o} q(\mathbf{r}),
+    \label{Eq:fourier}
+\end{equation}
+where $\omega=2\pi f$ and only positive frequency components of $\mathrm{\delta S}$ are considered. An FEM solver (COMSOL multiphysics in this work) can be used for simulations using the above equation. Critical parameters used in the simulation of thermal properties are: density $\rho=2.2\times 10^{3}$ $\rm kg~m^{-3}$, heat capacity $C=740$ J kg$^{-1}\cdot$K$^{-1}$, thermal conductivity $k=1.38$ W  m$^{-1}$K$^{-1}$, thermorefractive index $n_{\rm T}=1.2 \times 10^{-5}$K$^{-1}$, and ambient temperature of 300 K. The silica resonator has 22 mm radius and $8$ $\rm \mu$m thickness, supported by a silicon pillar with $140 $ $\mu$m in undercut. The wedge angle is $30 ^{\circ}$.
+
+\medskip
+
+\noindent{\bf Theory of noise transduction}
+
+\noindent In this section, we overview the theoretical analysis used to determine the noise transduction factors $\alpha$ and $\beta$. The following pair of Lugiato-Lefever equations \cite{lugiato1987spatial,herr2014temporal,yi2017single} are utilized to predict the dynamics of the soliton field with another transverse mode family field coupled to it so as to provide dispersive wave radiation, 
+\begin{equation}
+    \frac{\partial E_{\rm S}}{\partial t}=(-\frac{\kappa_{\rm S}}{2}-i\mathrm{\delta \omega}+i\frac{D_{2\rm S}}{2}\frac{\partial^2}{\partial \phi^2}+ig_{\rm S}|E_{\rm S}|^2+i\gamma_{\rm S}\frac{\partial |E_{\rm S}|^2}{\partial \phi})E_{\rm S}+f_o+iGE_{\rm D}, 
+\end{equation}
+\begin{equation}
+\begin{split}
+    \frac{\partial E_{\rm D}}{\partial t}=[-\frac{\kappa_{\rm D}}{2}
+    -i(\mathrm{\delta \omega}+\mathrm{\Delta\omega}_{\rm o}-i\mathrm{\Delta D}\frac{\partial }{\partial \phi})
+    +i\frac{D_{2\rm D}}{2}\frac{\partial^2}{\partial \phi^2}\\
+    +ig_{\rm D}|E_{\rm D}|^2+i\gamma_{\rm D}\frac{\partial |E_{\rm D}|^2}{\partial \phi}]E_{\rm D}+iGE_{\rm S}, 
+\end{split}
+\end{equation}
+where $E_{\rm S}$ ($E_{\rm D}$) is the slowly varying field envelope (photon number normalization) for the soliton (dispersive wave), $\kappa_{\rm S,D}$ are the corresponding energy decay rates, $\mathrm{\delta\omega}$ is the pump-cavity frequency detuning, $g_{\rm S,D} \equiv\hbar\omega_{\rm o}^2 n_2 D_{\rm 1S,D}/2\pi n_{\rm o} A_{\rm eff}$ is the nonlinear coupling coefficient with $A_{\rm eff}$ the effective nonlinear mode area, $\gamma_{\rm S,D} \equiv g_{\rm S,D} D_{\rm 1S}\tau_{\rm R}$ is the Raman coefficient with $\tau_{\rm R}$ the Raman shock time,  $\phi$ is azimuthal angle in the cavity, $\mathrm{\Delta\omega}_{\rm o} \equiv \omega_{\rm oD}-\omega_{\rm oS}$, and $\mathrm{\Delta D} \equiv D_{1D}-D_{1S}$. Also,  $f_{\rm o} \equiv \sqrt{\kappa_{\rm ext} P_{\rm in}}$ is the pump field amplitude where $\kappa_{\rm ext}$ is the external coupling rate of the soliton mode and $P_{\rm in}$ is the pump power.  $G$ is the coupling strength between the soliton and dispersive wave mode families. 
+
+After considerable algebra, the spectral recoil $\Omega_{\rm Recoil}$ induced by the dispersive wave can be obtained using moment analysis, as given by \cite{yi2017single}
+\begin{equation}
+    \Omega_{\rm Recoil}=-\Lambda \tau_{\rm s} |h_{r}|^{2}
+    \propto
+    \frac{1}{(\Delta\omega')^{2}[(\mathrm{\Delta\omega}_r-\mathrm{\Delta\omega'})^{2}+\frac{\textcolor{red}{\kappa_{\rm B}}^{2}}{4}]},
+    \label{Recoil}
+\end{equation}
+with $\Lambda$ 
+\begin{equation}
+    \Lambda
+    =
+    \frac{\pi r \kappa_{\rm D} g_{\rm S} D_{1\rm S}^2}{\kappa_{\rm S} D_{2\rm S}}.
+\end{equation}
+\textcolor{red}{where r is the relative mode index of the mode in which the dispersive wave emits. } Combined with the Raman-induced SSFS \cite{yi2016theory}
+\begin{equation}
+    \Omega_{\rm Raman}=-\frac{8\tau_{\rm R} D_{\rm 2S}}{15 \kappa_{\rm S}D_{1\rm S}^{2}\tau_{\rm s}^4},
+    \label{PulseWidth}
+\end{equation}
+the overall soliton spectral shift yields
+\begin{equation}
+    \Omega=\Omega_{\rm Raman}+\Omega_{\rm Recoil}.
+    \label{FrequencyShift}
+\end{equation}
+In addition, the detuning $\delta \omega$ is obtained by \cite{yi2016theory,yi2017single}
+\begin{equation}
+    \mathrm{\delta \omega}=\frac{D_{2\rm S}}{2D_{1\rm S}^{2}}(\frac{1}{\tau_{\rm s}^{2}}+\Omega^{2}).
+    \label{Detuning}
+\end{equation}
+It is noted $\Omega$ and $\tau_{\rm s}$ are fitted through optical spectra of the soliton with a ${\rm sech}^2$ envelope. All parameters that are required to describe the system are obtained either from direct measurement or by fitting experimental data. Critical parameters are: $\tau_{\rm R}=2.7$ fs, $g_{\rm S}=7.9\times10^{-4}$ rad/s. Fitted parameters include \textcolor{red}{$G/2\pi=12\pm 2$} MHz and \textcolor{red}{$\mathrm{\Delta \omega'}/2\pi=16\pm 2$} MHz. Based on these parameters, the transduction factors are calculated numerically as shown in Fig. \ref{figure5}d. The analytical model is further verified with numerical simulation in the Supplement.
+
+\medskip
+
+\noindent{\bf Impact of pump intensity noise}
+
+\noindent The impact of the relative intensity noise (RIN) from the pump laser on the soliton repetition rate is obtained by numerical simulation of the above-mentioned coupled Lugiato-Lefever equations. Specifically, a sinusoidal perturbation at frequency $f$ is applied on the pump so that 
+\begin{equation}
+    f_{\rm o}=f_{\rm s}(1+\frac{\varepsilon}{2} \sin{2\pi f t}).
+\end{equation}
+By tracking the motion of soliton peak position, the change of repetition rate can be revealed which further gives the following noise coupling coefficient
+\begin{equation}
+    \chi(f)=|\frac{\partial\omega_{\rm rep}}{\partial\epsilon}|.
+\end{equation}
+Therefore, with the measured pump RIN (Fig. \ref{figure8}), the RIN-induced phase noise can be derived as shown in Fig. \ref{figure3}d. 
+
+\medskip
+
+\noindent{\bf Quantum timing jitter}
+
+\noindent Quantum timing jitter of soliton microcombs originates from vacuum fluctuations in each cavity mode. The predicted SSB phase noise spectral density of the detected soliton pulse stream at the repetition rate is given by \cite{matsko2013timing}
+\begin{equation}
+    S_{\rm Q}(f)=\frac{\pi g_{\rm S}}{6} \sqrt{\frac{2D_{2S}}{\mathrm{\delta \omega}}}
+    [\frac{\pi^{2}\kappa_{\rm S}}{16\mathrm{\delta \omega}}+(1+\frac{4\pi^{2}f^{2}}{\kappa_{\rm S}^{2}})^{-1}\frac{\mathrm{\delta \omega}}{\kappa_{\rm S}}].
+\end{equation}
+
+\end{footnotesize}
+%\bigskip \noindent See \href{link}{Supplement 1} for supporting content.
+% Bibliography
+
+\noindent\textbf{Data availability}
+
+\begin{footnotesize}
+\noindent The data that support the plots within this paper and other findings of this study are available on figshare (\href{https://doi.org/10.6084/m9.figshare.13513995}{https://doi.org/10.6084/m9.figshare.13513995}). All other data used in this study are available from the corresponding author upon reasonable request.
+\end{footnotesize}
+
+\noindent\textbf{Code availability}
+
+\begin{footnotesize}
+\noindent The codes that support the findings of this study are available from the corresponding authors upon reasonable request. 
+\end{footnotesize}
+
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Kippenberg2018}
+\bibinfo{author}{Kippenberg, T.~J.}, \bibinfo{author}{Gaeta, A.~L.},
+  \bibinfo{author}{Lipson, M.} \& \bibinfo{author}{Gorodetsky, M.~L.}
+\newblock \bibinfo{title}{Dissipative {K}err solitons in optical
+  microresonators}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{361}}
+  (\bibinfo{year}{2018}).
+
+\bibitem{yi2015soliton}
+\bibinfo{author}{Yi, X.}, \bibinfo{author}{Yang, Q.-F.}, \bibinfo{author}{Yang,
+  K.~Y.}, \bibinfo{author}{Suh, M.-G.} \& \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Soliton frequency comb at microwave rates in a
+  high-{Q} silica microresonator}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{1078--1085} (\bibinfo{year}{2015}).
+
+\bibitem{herr2014mode}
+\bibinfo{author}{Herr, T.} \emph{et~al.}
+\newblock \bibinfo{title}{Mode spectrum and temporal soliton formation in
+  optical microresonators}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. Lett.}}
+  \textbf{\bibinfo{volume}{113}}, \bibinfo{pages}{123901}
+  (\bibinfo{year}{2014}).
+
+\bibitem{liang2015high}
+\bibinfo{author}{Liang, W.} \emph{et~al.}
+\newblock \bibinfo{title}{High spectral purity {Kerr} frequency comb radio
+  frequency photonic oscillator}.
+\newblock \emph{\bibinfo{journal}{Nat. Commun.}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{7957} (\bibinfo{year}{2015}).
+
+\bibitem{suh2018gigahertz}
+\bibinfo{author}{Suh, M.-G.} \& \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Gigahertz-repetition-rate soliton microcombs}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{5}},
+  \bibinfo{pages}{65--66} (\bibinfo{year}{2018}).
+
+\bibitem{yang2018bridging}
+\bibinfo{author}{Yang, K.~Y.} \emph{et~al.}
+\newblock \bibinfo{title}{Bridging ultrahigh-{Q} devices and photonic
+  circuits}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{297} (\bibinfo{year}{2018}).
+
+\bibitem{liu2020photonic}
+\bibinfo{author}{Liu, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Photonic microwave generation in the x-and k-band
+  using integrated soliton microcombs}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \bibinfo{pages}{1--6}
+  (\bibinfo{year}{2020}).
+
+\bibitem{jin2020hertz}
+\bibinfo{author}{Jin, W.} \emph{et~al.}
+\newblock \bibinfo{title}{Hertz-linewidth semiconductor lasers using
+  {CMOS}-ready ultra-high-$ q $ microresonators}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2009.07390}}
+  (\bibinfo{year}{2020}).
+
+\bibitem{shen2020integrated}
+\bibinfo{author}{Shen, B.} \emph{et~al.}
+\newblock \bibinfo{title}{Integrated turnkey soliton microcombs}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{582}},
+  \bibinfo{pages}{365--369} (\bibinfo{year}{2020}).
+
+\bibitem{li2013microwave}
+\bibinfo{author}{Li, J.}, \bibinfo{author}{Lee, H.} \& \bibinfo{author}{Vahala,
+  K.~J.}
+\newblock \bibinfo{title}{Microwave synthesizer using an on-chip brillouin
+  oscillator}.
+\newblock \emph{\bibinfo{journal}{Nat. Commun.}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{1--7} (\bibinfo{year}{2013}).
+
+\bibitem{tang2018integrated}
+\bibinfo{author}{Tang, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Integrated optoelectronic oscillator}.
+\newblock \emph{\bibinfo{journal}{Opt. Express}} \textbf{\bibinfo{volume}{26}},
+  \bibinfo{pages}{12257--12265} (\bibinfo{year}{2018}).
+
+\bibitem{do2020wideband}
+\bibinfo{author}{Do, P.~T.} \emph{et~al.}
+\newblock \bibinfo{title}{Wideband tunable microwave signal generation in a
+  silicon-micro-ring-based optoelectronic oscillator}.
+\newblock \emph{\bibinfo{journal}{Sci. Rep.}} \textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{1--9} (\bibinfo{year}{2020}).
+
+\bibitem{gundavarapu2019sub}
+\bibinfo{author}{Gundavarapu, S.} \emph{et~al.}
+\newblock \bibinfo{title}{Sub-hertz fundamental linewidth photonic integrated
+  brillouin laser}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \textbf{\bibinfo{volume}{13}},
+  \bibinfo{pages}{60--67} (\bibinfo{year}{2019}).
+
+\bibitem{matsko2013timing}
+\bibinfo{author}{Matsko, A.~B.} \& \bibinfo{author}{Maleki, L.}
+\newblock \bibinfo{title}{On timing jitter of mode locked {Kerr} frequency
+  combs}.
+\newblock \emph{\bibinfo{journal}{Opt. Express}} \textbf{\bibinfo{volume}{21}},
+  \bibinfo{pages}{28862--28876} (\bibinfo{year}{2013}).
+
+\bibitem{bao2020quantum}
+\bibinfo{author}{Bao, C.} \emph{et~al.}
+\newblock \bibinfo{title}{Quantum diffusion of microcavity solitons}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2003.06685}}
+  (\bibinfo{year}{2020}).
+
+\bibitem{yi2016theory}
+\bibinfo{author}{Yi, X.}, \bibinfo{author}{Yang, Q.-F.}, \bibinfo{author}{Yang,
+  K.~Y.} \& \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Theory and measurement of the soliton self-frequency
+  shift and efficiency in optical microcavities}.
+\newblock \emph{\bibinfo{journal}{Opt. Lett.}} \textbf{\bibinfo{volume}{41}},
+  \bibinfo{pages}{3419--3422} (\bibinfo{year}{2016}).
+
+\bibitem{karpov2016raman}
+\bibinfo{author}{Karpov, M.} \emph{et~al.}
+\newblock \bibinfo{title}{Raman self-frequency shift of dissipative kerr
+  solitons in an optical microresonator}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. Lett.}}
+  \textbf{\bibinfo{volume}{116}}, \bibinfo{pages}{103902}
+  (\bibinfo{year}{2016}).
+
+\bibitem{yang2016spatial}
+\bibinfo{author}{Yang, Q.-F.}, \bibinfo{author}{Yi, X.}, \bibinfo{author}{Yang,
+  K.~Y.} \& \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Spatial-mode-interaction-induced dispersive-waves and
+  their active tuning in microresonators}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{3}},
+  \bibinfo{pages}{1132--1135} (\bibinfo{year}{2016}).
+
+\bibitem{gorodetsky2004fundamental}
+\bibinfo{author}{Gorodetsky, M.~L.} \& \bibinfo{author}{Grudinin, I.~S.}
+\newblock \bibinfo{title}{Fundamental thermal fluctuations in microspheres}.
+\newblock \emph{\bibinfo{journal}{J. Opt. Soc. Am. B}}
+  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{697--705}
+  (\bibinfo{year}{2004}).
+
+\bibitem{matsko2007whispering}
+\bibinfo{author}{Matsko, A.~B.}, \bibinfo{author}{Savchenkov, A.~A.},
+  \bibinfo{author}{Yu, N.} \& \bibinfo{author}{Maleki, L.}
+\newblock \bibinfo{title}{Whispering-gallery-mode resonators as frequency
+  references. i. fundamental limitations}.
+\newblock \emph{\bibinfo{journal}{J. Opt. Soc. Am. B}}
+  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{1324--1335}
+  (\bibinfo{year}{2007}).
+
+\bibitem{kondratiev2018thermorefractive}
+\bibinfo{author}{Kondratiev, N.} \& \bibinfo{author}{Gorodetsky, M.}
+\newblock \bibinfo{title}{Thermorefractive noise in whispering gallery mode
+  microresonators: Analytical results and numerical simulation}.
+\newblock \emph{\bibinfo{journal}{Phys. Lett. A}}
+  \textbf{\bibinfo{volume}{382}}, \bibinfo{pages}{2265--2268}
+  (\bibinfo{year}{2018}).
+
+\bibitem{huang2019thermorefractive}
+\bibinfo{author}{Huang, G.} \emph{et~al.}
+\newblock \bibinfo{title}{Thermorefractive noise in silicon-nitride
+  microresonators}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. A}} \textbf{\bibinfo{volume}{99}},
+  \bibinfo{pages}{061801} (\bibinfo{year}{2019}).
+
+\bibitem{brasch2016photonic}
+\bibinfo{author}{Brasch, V.} \emph{et~al.}
+\newblock \bibinfo{title}{Photonic chip--based optical frequency comb using
+  soliton {Cherenkov} radiation}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{351}},
+  \bibinfo{pages}{357--360} (\bibinfo{year}{2016}).
+
+\bibitem{Jang2014observation}
+\bibinfo{author}{Jang, J.~K.}, \bibinfo{author}{Erkintalo, M.},
+  \bibinfo{author}{Murdoch, S.~G.} \& \bibinfo{author}{Coen, S.}
+\newblock \bibinfo{title}{{Observation of dispersive wave emission by temporal
+  cavity solitons}}.
+\newblock \emph{\bibinfo{journal}{Optics Letters}}
+  \textbf{\bibinfo{volume}{39}}, \bibinfo{pages}{5503} (\bibinfo{year}{2014}).
+
+\bibitem{nielsen2018invited}
+\bibinfo{author}{Nielsen, A.~U.}, \bibinfo{author}{Garbin, B.},
+  \bibinfo{author}{Coen, S.}, \bibinfo{author}{Murdoch, S.~G.} \&
+  \bibinfo{author}{Erkintalo, M.}
+\newblock \bibinfo{title}{Invited article: Emission of intense resonant
+  radiation by dispersion-managed kerr cavity solitons}.
+\newblock \emph{\bibinfo{journal}{APL photonics}} \textbf{\bibinfo{volume}{3}},
+  \bibinfo{pages}{120804} (\bibinfo{year}{2018}).
+
+\bibitem{yi2017single}
+\bibinfo{author}{Yi, X.} \emph{et~al.}
+\newblock \bibinfo{title}{Single-mode dispersive waves and soliton microcomb
+  dynamics}.
+\newblock \emph{\bibinfo{journal}{Nat. Commun.}} \textbf{\bibinfo{volume}{8}},
+  \bibinfo{pages}{1--9} (\bibinfo{year}{2017}).
+
+\bibitem{lee2012chemically}
+\bibinfo{author}{Lee, H.} \emph{et~al.}
+\newblock \bibinfo{title}{Chemically etched ultrahigh-{Q} wedge-resonator on a
+  silicon chip}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{369--373} (\bibinfo{year}{2012}).
+
+\bibitem{wu2020greater}
+\bibinfo{author}{Wu, L.} \emph{et~al.}
+\newblock \bibinfo{title}{Greater than one billion {$Q$} factor for on-chip
+  microresonators}.
+\newblock \emph{\bibinfo{journal}{Opt. Lett.}} \textbf{\bibinfo{volume}{45}},
+  \bibinfo{pages}{5129--5131} (\bibinfo{year}{2020}).
+
+\bibitem{suh2019directly}
+\bibinfo{author}{Suh, M.-G.}, \bibinfo{author}{Wang, C.~Y.},
+  \bibinfo{author}{Johnson, C.} \& \bibinfo{author}{Vahala, K.~J.}
+\newblock \bibinfo{title}{Directly pumped 10 {GHz} microcomb modules from
+  low-power diode lasers}.
+\newblock \emph{\bibinfo{journal}{Opt. Lett.}} \textbf{\bibinfo{volume}{44}},
+  \bibinfo{pages}{1841--1843} (\bibinfo{year}{2019}).
+
+\bibitem{yi2016active}
+\bibinfo{author}{Yi, X.}, \bibinfo{author}{Yang, Q.-F.}, \bibinfo{author}{Youl,
+  K.} \& \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Active capture and stabilization of temporal solitons
+  in microresonators}.
+\newblock \emph{\bibinfo{journal}{Opt. Lett.}} \textbf{\bibinfo{volume}{41}},
+  \bibinfo{pages}{2037--2040} (\bibinfo{year}{2016}).
+
+\bibitem{guo2017intermode}
+\bibinfo{author}{Guo, H.} \emph{et~al.}
+\newblock \bibinfo{title}{Intermode breather solitons in optical
+  microresonators}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. X}} \textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{041055} (\bibinfo{year}{2017}).
+
+\bibitem{lucas2017detuning}
+\bibinfo{author}{Lucas, E.}, \bibinfo{author}{Guo, H.}, \bibinfo{author}{Jost,
+  J.~D.}, \bibinfo{author}{Karpov, M.} \& \bibinfo{author}{Kippenberg, T.~J.}
+\newblock \bibinfo{title}{Detuning-dependent properties and dispersion-induced
+  instabilities of temporal dissipative {Kerr} solitons in optical
+  microresonators}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. A}} \textbf{\bibinfo{volume}{95}},
+  \bibinfo{pages}{043822} (\bibinfo{year}{2017}).
+
+\bibitem{herr2014temporal}
+\bibinfo{author}{Herr, T.} \emph{et~al.}
+\newblock \bibinfo{title}{Temporal solitons in optical microresonators}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \textbf{\bibinfo{volume}{8}},
+  \bibinfo{pages}{145--152} (\bibinfo{year}{2014}).
+
+\bibitem{stone2018thermal}
+\bibinfo{author}{Stone, J.~R.} \emph{et~al.}
+\newblock \bibinfo{title}{Thermal and nonlinear dissipative-soliton dynamics in
+  {Kerr}-microresonator frequency combs}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. Lett.}}
+  \textbf{\bibinfo{volume}{121}}, \bibinfo{pages}{063902}
+  (\bibinfo{year}{2018}).
+
+\bibitem{lucas2020ultralow}
+\bibinfo{author}{Lucas, E.} \emph{et~al.}
+\newblock \bibinfo{title}{Ultralow-noise photonic microwave synthesis using a
+  soliton microcomb-based transfer oscillator}.
+\newblock \emph{\bibinfo{journal}{Nat. Commun.}} \textbf{\bibinfo{volume}{11}},
+  \bibinfo{pages}{1--8} (\bibinfo{year}{2020}).
+
+\bibitem{ji2017ultra}
+\bibinfo{author}{Ji, X.} \emph{et~al.}
+\newblock \bibinfo{title}{Ultra-low-loss on-chip resonators with sub-milliwatt
+  parametric oscillation threshold}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{619--624} (\bibinfo{year}{2017}).
+
+\bibitem{levin2008fluctuation}
+\bibinfo{author}{Levin, Y.}
+\newblock \bibinfo{title}{Fluctuation--dissipation theorem for
+  thermo-refractive noise}.
+\newblock \emph{\bibinfo{journal}{Phys. Lett. A}}
+  \textbf{\bibinfo{volume}{372}}, \bibinfo{pages}{1941--1944}
+  (\bibinfo{year}{2008}).
+
+\bibitem{newman2019architecture}
+\bibinfo{author}{Newman, Z.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{Architecture for the photonic integration of an
+  optical atomic clock}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{680--685} (\bibinfo{year}{2019}).
+
+\bibitem{Merklein2016widely}
+\bibinfo{author}{Merklein, M.} \emph{et~al.}
+\newblock \bibinfo{title}{{Widely tunable, low phase noise microwave source
+  based on a photonic chip}}.
+\newblock \emph{\bibinfo{journal}{Optics Letters}}
+  \textbf{\bibinfo{volume}{41}}, \bibinfo{pages}{4633} (\bibinfo{year}{2016}).
+
+\bibitem{gong2018high}
+\bibinfo{author}{Gong, Z.} \emph{et~al.}
+\newblock \bibinfo{title}{High-fidelity cavity soliton generation in
+  crystalline {A}l{N} micro-ring resonators}.
+\newblock \emph{\bibinfo{journal}{Opt. Lett.}} \textbf{\bibinfo{volume}{43}},
+  \bibinfo{pages}{4366--4369} (\bibinfo{year}{2018}).
+
+\bibitem{he2019self}
+\bibinfo{author}{He, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{Self-starting bi-chromatic {LiNbO$_3$} soliton
+  microcomb}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{1138--1144} (\bibinfo{year}{2019}).
+
+\bibitem{pfeiffer2017octave}
+\bibinfo{author}{Pfeiffer, M.~H.} \emph{et~al.}
+\newblock \bibinfo{title}{Octave-spanning dissipative {Kerr} soliton frequency
+  combs in {Si$_3$N$_4$} microresonators}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{684--691} (\bibinfo{year}{2017}).
+
+\bibitem{li2017stably}
+\bibinfo{author}{Li, Q.} \emph{et~al.}
+\newblock \bibinfo{title}{Stably accessing octave-spanning microresonator
+  frequency combs in the soliton regime}.
+\newblock \emph{\bibinfo{journal}{Optica}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{193--203} (\bibinfo{year}{2017}).
+
+\bibitem{moille2020dissipative}
+\bibinfo{author}{Moille, G.} \emph{et~al.}
+\newblock \bibinfo{title}{Dissipative {Kerr} solitons in a {III-V}
+  microresonator}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2003.06438}}
+  (\bibinfo{year}{2020}).
+
+\bibitem{Lee2014spiral}
+\bibinfo{author}{Lee, H.} \emph{et~al.}
+\newblock \bibinfo{title}{Spiral resonators for on-chip laser frequency
+  stabilization}.
+\newblock \emph{\bibinfo{journal}{Nat. Commun.}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{2468} (\bibinfo{year}{2013}).
+
+\bibitem{Li2012sideband}
+\bibinfo{author}{Li, J.}, \bibinfo{author}{Lee, H.}, \bibinfo{author}{Yang,
+  K.~Y.} \& \bibinfo{author}{Vahala, K.~J.}
+\newblock \bibinfo{title}{{Sideband spectroscopy and dispersion measurement in
+  microcavities}}.
+\newblock \emph{\bibinfo{journal}{Optics Express}}
+  \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{26337} (\bibinfo{year}{2012}).
+
+\bibitem{carmon2004dynamical}
+\bibinfo{author}{Carmon, T.}, \bibinfo{author}{Yang, L.} \&
+  \bibinfo{author}{Vahala, K.}
+\newblock \bibinfo{title}{Dynamical thermal behavior and thermal self-stability
+  of microcavities}.
+\newblock \emph{\bibinfo{journal}{Opt. Express}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{4742--4750} (\bibinfo{year}{2004}).
+
+\bibitem{li2014pump}
+\bibinfo{author}{Li, J.}, \bibinfo{author}{Diddams, S.} \&
+  \bibinfo{author}{Vahala, K.~J.}
+\newblock \bibinfo{title}{Pump frequency noise coupling into a microcavity by
+  thermo-optic locking}.
+\newblock \emph{\bibinfo{journal}{Opt. Express}} \textbf{\bibinfo{volume}{22}},
+  \bibinfo{pages}{14559--14567} (\bibinfo{year}{2014}).
+
+\bibitem{drake2020thermal}
+\bibinfo{author}{Drake, T.~E.}, \bibinfo{author}{Stone, J.~R.},
+  \bibinfo{author}{Briles, T.~C.} \& \bibinfo{author}{Papp, S.~B.}
+\newblock \bibinfo{title}{Thermal decoherence and laser cooling of {Kerr}
+  microresonator solitons}.
+\newblock \emph{\bibinfo{journal}{Nat. Photon.}} \bibinfo{pages}{1--6}
+  (\bibinfo{year}{2020}).
+
+\bibitem{callen1951irreversibility}
+\bibinfo{author}{Callen, H.~B.} \& \bibinfo{author}{Welton, T.~A.}
+\newblock \bibinfo{title}{Irreversibility and generalized noise}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev.}} \textbf{\bibinfo{volume}{83}},
+  \bibinfo{pages}{34} (\bibinfo{year}{1951}).
+
+\bibitem{landau1980statisticheskaia}
+\bibinfo{author}{Landau, L.~D.}, \bibinfo{author}{Lifshits, E.~M.} \&
+  \bibinfo{author}{Pitaevski{\u\i}, L.~P.}
+\newblock \emph{\bibinfo{title}{Statisticheskaia fizika}},
+  vol.~\bibinfo{volume}{5} (\bibinfo{publisher}{Pergamon},
+  \bibinfo{year}{1980}).
+
+\bibitem{lugiato1987spatial}
+\bibinfo{author}{Lugiato, L.~A.} \& \bibinfo{author}{Lefever, R.}
+\newblock \bibinfo{title}{Spatial dissipative structures in passive optical
+  systems}.
+\newblock \emph{\bibinfo{journal}{Phys. Rev. Lett.}}
+  \textbf{\bibinfo{volume}{58}}, \bibinfo{pages}{2209} (\bibinfo{year}{1987}).
+
+\end{thebibliography}
+
+\noindent\textbf{Acknowledgments}
+
+\begin{footnotesize}
+\noindent We thank S. Papp at NIST for helpful comments during the preparation of this manuscript, N. M. Kondratiev for discussion on simulation of thermorefractive noise, as well as X. Zhang for help on simulation of the dispersive wave. The authors gratefully acknowledge the Defense Advanced Research Projects Agency under the APhI program (Award FA9453-19-C-0029) and the Kavli Nanoscience Institute. Q.-X.J. thanks the Caltech SURF program.
+\end{footnotesize}
+
+\medskip
+
+\noindent\textbf{Author contributions} 
+
+\begin{footnotesize}
+\noindent Experiments are designed by Q-F.Y. and Q-X.J. Measurements are performed by Q-F.Y. and Q-X.J. with assistance from L.W., B.S., C.B. and Z.Y. Devices are fabricated and packaged by L.W. Modelling is performed by Q-F.Y., Q-X.J., H.W. and B.S. All authors participated in preparing the manuscript.
+\end{footnotesize}
+
+\medskip
+
+\noindent\textbf{Competing interests}
+
+\begin{footnotesize}
+\noindent The authors declare no competing interests.
+\end{footnotesize}
+
+\medskip
+
+\noindent\textbf{Additional information}
+
+\begin{footnotesize}
+\noindent Supplementary information is available for this paper.
+
+\medskip
+
+\noindent {\bf Correspondence} and requests for materials should be addressed to K.V.
+\end{footnotesize}
+
+\newpage
+
+\begin{figure}[b]
+\includegraphics[width=\linewidth]{Fig1.eps}
+\caption{{\bf Soliton microcombs as microwave signal sources.} {\bf a,} Apparatus for microwave signal generation using a soliton microcomb. A microresonator pumped by a continuous-wave (cw) laser emits a repetitive soliton pulse train, which is directed into a photodetector (PD) to produce a signal current. {\bf b,} Representative optical spectrum of a soliton microcomb with 15.2 GHz repetition rate (left panel). The pump (black dashed line) has been attenuated by an optical notch filter. The right panel shows the corresponding microwave-rate beat signal with resolution bandwidth (RBW) of 10 Hz.}
+\label{figure1}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{Fig2.eps}
+\caption{{\bf Experimental setup and preliminary microwave signal characterization.} {\bf a,} Experiment setup for soliton generation. PM: phase modulator; EDFA: erbium-doped-fiber-amplifier; AOM: acousto-optic modulator; FBG: fiber-Bragg-grating notch filter; PD: photodetector; OSA: optical spectral analyzer; ESA: electrical spectral analyzer. {\bf b,} Typical \textcolor{red}{single-sideband (SSB)} phase noise spectrum of detected soliton pulse stream (scaled to 15.2 GHz) obtained using packaged/unpackaged microresonators. Inset: photo of a packaged microresonator. {\bf c,} Fractional Allan deviation of soliton pulse rate.}
+\label{figure2}
+\end{figure}
+
+\begin{figure*}[!ht]
+\includegraphics[width=\linewidth]{Fig3.eps}
+\caption{{\bf Noise spectra near and away from the quiet point.} {\bf a,} Soliton optical spectrum showing spectral envelope (red solid line), the attenuated pump (black dashed line) and a strong dispersive wave. The spectral center of the soliton (red dashed line) is shifted in frequency relative to the pump frequency. {\bf b,} Measured soliton repetition rate versus laser-cavity detuning ($\mathrm{\delta \omega} / 2 \pi$), where the existence of a quiet point is revealed. {\bf c,} Electrical spectrum showing soliton repetition rate. Two sidebands at 10 kHz offset frequency are induced by phase modulation of the pump and are used to calibrate the contribution of detuning noise. {\bf d,} \textcolor{red}{Single-sideband (SSB)} soliton microwave phase noise (solid curves) and calibration tone power (triangles) at different detuning frequencies (indicated by color in accordance with panel b). The optical detuning noise is the blue dotted line. At the quiet operating point, its calibration-inferred contribution to microwave noise is the dashed red curve. Noise induced by the pump intensity fluctuation (gray dotted line) is also plotted. The phase noise analyzer instrumental noise floor is shown as the black line. {\bf e,} Plot of actual noise suppression versus calibration tone suppression at several offset frequencies. The dashed line indicates the expected phase noise suppression if detuning noise is dominant. }
+\label{figure3}
+\end{figure*}
+
+\begin{figure*}[t]
+\includegraphics[width=\linewidth]{Fig4.eps}
+\caption{{\bf Concept of dispersive-wave-induced noise and identification of mode families.} {\bf a,} Spectral relationship of soliton spectrum to dispersive wave forming mode. Blue lines indicate soliton spectral lines. Red and green shaded regions denote soliton-forming and dispersive-wave resonator modes, respectively. {\bf b,} Left side: physical steps involved in coupling fluctuations in $\mathrm{\Delta \omega}$ (intermode noise) into soliton repetition rate. Right side: physical steps involved in coupling fluctuations in $\mathrm{\delta \omega}$ (detuning noise) into soliton repetition rate. Noise sources (top) are transduced ($\alpha$ and $\beta$ coupling channels) into the soliton repetition rate (bottom). Detuning noise results mainly from the pumping laser noise contributing to $\mathrm{\delta \omega}$ and thereby causes technical noise in the soliton repetition rate.  Intermode noise results from fundamental thermo-refractive noise of the dispersive wave and soliton mode frequencies contributing to $\mathrm{\Delta \omega}$.    {\bf c,} Measured mode family dispersion of the microresonator. Numerically simulated cross sections of soliton (TM$_0$) and dispersive wave (TM$_4$) modes are plotted and identified with the corresponding frequency branches. Orange and green bands (and wavy lines) are suggestive (and highly magnified) fluctuations induced by thermo-refractive noise (TRN). {\bf d,} Measured transmission spectra of soliton and dispersive wave resonator modes. The intrinsic ($Q_0$) and coupling ($Q_{\rm C}$) $Q$-factors are extracted by fitting the Lorentzian lineshapes and transmission minima.}
+\label{figure4}
+\end{figure*}
+
+\begin{figure*}[t]
+\includegraphics[width=\linewidth]{Fig5.eps}
+\caption{{\bf Intermode thermal noise (between dispersive wave and soliton modes) and its impact on soliton repetition rate.} {\bf a,} Simulated temperature correlation $R$ between transverse mode volumes versus frequency of thermal fluctuation. Specific transverse mode pairs are indicated in the legend. Green region corresponds to $R<$ 0.5. {\bf b,} Measured and simulated \textcolor{red}{single-sideband (SSB)} TRN of a TM$_0$ mode. The simulated intermode TRN between TM$_0$ and TM$_4$ is also displayed. Green region corresponds to $R<$ 0.5 in panel a. {\bf c,} Contribution of Raman SSFS and dispersive recoil to total spectral center frequency shift of the soliton. The error bar indicates standard deviation, and is contributed from fitting of the lineshape. {\bf d,} Measured and calculated noise transduction factors. The error bar indicates standard deviation. The error in detuning is contributed by the lineshape fitting, while the transduction factor error comes from the signal analyzer. {\bf e,} Measured phase noise at maximum quiet point suppression and calculated dispersive-wave induced noise originating from intermode TRN. Quantum timing jitter and thermorefractive noise (TRN) of the $FSR$ are also plotted for comparison. }
+\label{figure5}
+\end{figure*}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{Fig6.eps}
+\caption{{\bf Soliton repetition rate disciplined to an external microwave source.} {\bf a,} Electrical beatnote of locked soliton repetition rate showing fine tuning control of the repetition rate. The resolution bandwidth \textcolor{red}{(RBW)} is 10 Hz. {\bf b,} Phase noise of free-running (dashed red line) and disciplined soliton microcomb (indicated by color in accordance with panel a). The trace measured near the quiet point is indicated. The phase noise of the microwave reference source is also displayed (gray dashed line).}
+\label{figure6}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{Fig7.eps}
+\caption{{\bf TRN measurement and resonator geometry.} {\bf a,} TRN measurement setup. MZI: Mach-Zehnder interferometer. OSC: oscilloscope. PD: photodiode. PM: phase modulator. {\bf b,} Cross sectional view of the microresonator. Multiple transverse modes are supported in the  suspended wedge-shaped whispering gallery. The surrounding silica, silicon and air serve as a heat reservoirs. The ambient temperature is denoted by $T_{\rm o}$. }
+\label{figure7}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{Fig8.eps}
+\caption{{\bf Influence of pump laser \textcolor{red}{relative intensity noise} (RIN). } {\bf a,} Measured SSB RIN of the pump laser. {\bf b,} Simulated noise transduction factor $\chi(f)$ between pump laser RIN and soliton repetition rate.}
+\label{figure8}
+\end{figure}
+
+\begin{table*}[!ht]
+    \includegraphics[width=\linewidth]{Table.eps}
+    \caption{{\bf Comparison of miniature reported photonic-based microwave oscillators. } Performance of an on-chip silica bright soliton microcomb (this work), a Crystalline bright soliton microcomb \cite{liang2015high,lucas2020ultralow}, a Si$_3$N$_4$ bright soliton microcomb \cite{liu2020photonic}, a Si$_3$N$_4$ dark soliton microcomb \cite{jin2020hertz}, a SiO$_2$ Brillouin laser \cite{li2013microwave}, a Si$_3$N$_4$ Brillouin laser \cite{gundavarapu2019sub}, and a hybrid electric-Brillouin oscillator \cite{Merklein2016widely}.}
+    \label{Table1}
+\end{table*}
+
+\end{document}
