@@ -44,7 +44,7 @@ $^{\dagger}$Corresponding author: vahala@caltech.edu}
 
 \noindent Soliton mode locking in optical microresonators is receiving intense interest for chip-scale integration of frequency comb systems \cite{Kippenberg2018}. Apart from frequency comb applications, the microwave signal produced by detection of the microcomb output is, itself, potentially important as a microwave signal source (see Fig. \ref{figure1}). 
 However, mode locking of microcombs at microwave rates is challenging on account of their unfavorable pump power scaling with repetition rate \cite{yi2015soliton}. Indeed, only ultra-high-Q discrete silica and crystalline devices were initially able to operate efficiently at microwave rates \cite{herr2014mode,yi2015soliton,liang2015high,suh2018gigahertz}. 
-Nonetheless, \textcolor{red}{The next} generations of integrated ultra-high-Q resonators are emerging that both access the microwave-rate realm \cite{yang2018bridging,liu2020photonic,jin2020hertz} and offer more complete integrated functionality \cite{shen2020integrated,jin2020hertz}. Because of their superior phase noise performance compared to other miniature photonic microwave approaches \cite{li2013microwave,tang2018integrated,do2020wideband,gundavarapu2019sub}, these devices are stimulating interest in miniature stand-alone soliton microwave sources.
+Nonetheless, \textcolor{red}{the next} generations of integrated ultra-high-Q resonators are emerging that both access the microwave-rate realm \cite{yang2018bridging,liu2020photonic,jin2020hertz} and offer more complete integrated functionality \cite{shen2020integrated,jin2020hertz}. Because of their superior phase noise performance compared to other miniature photonic microwave approaches \cite{li2013microwave,tang2018integrated,do2020wideband,gundavarapu2019sub}, these devices are stimulating interest in miniature stand-alone soliton microwave sources.
 
 While the fundamental limit of phase noise (and equivalently timing jitter) in the detected soliton pulse stream is induced by quantum fluctuations \cite{matsko2013timing,bao2020quantum}, in practice, phase noise is dominated by sources of a more technical origin that couple to the soliton motion in various ways. For example, the Raman self frequency shift in microcombs \cite{yi2016theory,karpov2016raman} provides a mechanism for transduction of changes in the detuning frequency (difference in the frequencies of the resonator mode being pumped and the pumping laser field) into the soliton repetition rate \cite{yang2016spatial}. It does this by causing a frequency shift in the center frequency of the soliton spectrum (which has an overall $\rm sech^2$ envelope) as the pump detuning frequency is varied. Group velocity dispersion then converts these spectral shifts into changes in the soliton round-trip propagation time and hence the repetition rate. The Raman process thereby couples any fluctuation of the resonator frequency (e.g., thermorefractive noise \cite{gorodetsky2004fundamental,matsko2007whispering,kondratiev2018thermorefractive,huang2019thermorefractive}) or the pump frequency into microwave phase noise. Dispersive waves can also induce a spectral center shift in the Kerr soliton \cite{brasch2016photonic,yang2016spatial}. Dispersive waves can emerge as a result of higher-order dispersion \cite{Jang2014observation, brasch2016photonic}, supermodes \cite{nielsen2018invited}, or when solitons radiate into resonator modes that do not belong to the soliton-forming mode family. And the spectral shift they induce can offset the Raman self shift. Indeed, when dispersive wave and Raman shifts are in balance, a $quiet$ operating point is attained whereby coupling of detuning frequency fluctuations into the soliton repetition rate are greatly reduced \cite{yi2017single}. 
 
@@ -707,7 +707,7 @@ Therefore, with the measured pump RIN (Fig. \ref{figure8}), the RIN-induced phas
 \noindent\textbf{Author contributions} 
 
 \begin{footnotesize}
-\noindent \textcolor{red}{Experiments are designed by Q-F.Y., Q-X.J and K.V..} Measurements are performed by Q-F.Y. and Q-X.J. with assistance from L.W., B.S., C.B. and Z.Y. Devices are fabricated and packaged by L.W. Modelling is performed by Q-F.Y., Q-X.J., H.W. and B.S. All authors participated in preparing the manuscript.
+\noindent \textcolor{red}{Experiments were conceived and designed by Q-F.Y., Q-X.J and K.V.} Measurements are performed by Q-F.Y. and Q-X.J. with assistance from L.W., B.S., C.B. and Z.Y. Devices are fabricated and packaged by L.W. Modelling is performed by Q-F.Y., Q-X.J., H.W. and B.S. All authors participated in preparing the manuscript.
 \end{footnotesize}
 
 \medskip
@@ -785,8 +785,8 @@ Therefore, with the measured pump RIN (Fig. \ref{figure8}), the RIN-induced phas
 \end{figure}
 
 \begin{table*}[!ht]
-    
-    \begin{tabular}{llllll}
+    \centering
+    \begin{tabular*}{17cm}{llllll}
     \multicolumn{6}{l} {\bf Table 1 | Miniature photonic-based microwave oscillators} \\
     \multicolumn{6}{c}{\bf Phase noise} \\
     &  &  & \multicolumn{2}{l} {\begin{tabular}[c]{@{}l@{}}{\bf SSB phase noise} \\  {\bf (dBc/Hz, scaled to 15.2 GHz)} \end{tabular}} & {\bf Ref \#} \\
@@ -797,16 +797,16 @@ Therefore, with the measured pump RIN (Fig. \ref{figure8}), the RIN-induced phas
     SiO$_2$ & SBS & 21.7 & -71 & -113 & 10 \\
     Si$_3$N$_4$ & SBS & 21.8 & -55 & -102 & 13 \\ \hline
     chalcogenide-on-silicon & SBS & 40.0 & -93 & -110 & 39\\ \hline
-    \end{tabular}
-    
-    \begin{tabular}{llllll}
+    \end{tabular*}
+    \centering
+    \begin{tabular*}{17cm}{llllll}
     \multicolumn{6}{c}{\bf Relative Allan deviation} \\
     {\bf Material} & {\bf Configuration} & {\bf Min. Adev. gate time (ms)} & {\bf Min. Adev.} &  {\bf Adev. @ 1 s} & {\bf Ref \#} \\ \hline
     SiO$_2$ (this work) & Bright soliton & 50 & 6$\times$10$^{-11}$ & 2$\times$10$^{-10}$ &  \\ \hline
     MgF$_2$ & Bright soliton & 200 & 5$\times$10$^{-12}$ & 10$^{-11}$ & 4 \\
     Si$_3$N$_4$ & Bright soliton & 1 & 3$\times$10$^{-9}$ & 8$\times$10$^{-8}$ & 7 \\ \hline
     SiO$_2$ & SBS & 20 & 10$^{-9}$ & 10$^{-8}$ & 10\\ \hline
-    \end{tabular}
+    \end{tabular*}
     
     \caption{{\bf Comparison of miniature reported photonic-based microwave oscillators. } Performance of an on-chip silica bright soliton microcomb (this work), a Crystalline bright soliton microcomb \cite{liang2015high,lucas2020ultralow}, a Si$_3$N$_4$ bright soliton microcomb \cite{liu2020photonic}, a Si$_3$N$_4$ dark soliton microcomb \cite{jin2020hertz}, a SiO$_2$ Brillouin laser \cite{li2013microwave}, a Si$_3$N$_4$ Brillouin laser \cite{gundavarapu2019sub}, and a hybrid electric-Brillouin oscillator \cite{Merklein2016widely}.}
     \label{Table1}
